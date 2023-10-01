@@ -89,6 +89,9 @@ cards = [1,2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"]
 random_card1 = random.choice(cards)
 random_card2 = random.choice(cards)
 random_card3 = random.choice(cards)
+random_dealers_cards1 = random.choice(dealers_cards1)
+random_dealers_cards2 = random.choice(dealers_cards2)
+choice_hit = False
 
 
 print("")
@@ -97,9 +100,8 @@ print("")
 print("DEALERS CARDS: ")
 print("")
 print("    [?][?]     ")
-print("""
-
-""")
+print(""
+      "")
 print("YOUR CARDS: ")
 print("")
 print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]") #+ "[" + str(random_card3) + "]")
@@ -110,6 +112,7 @@ print("")
 choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
 
 if choice_bj == "hit":
+    choice_hit = True
     print("")
     print("DEALERS CARDS: ")
     print("")
@@ -123,16 +126,28 @@ if choice_bj == "hit":
     print("What's your next move?")
     print("")
     choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
+    if choice_bj == "stand":
+        print("")
+        print("DEALERS CARDS: ")
+        print("")
+        print("    [" + str(random_dealers_cards1) + "]" "[" + str(random_dealers_cards2) + "]     ")
+        print("")
+        print("YOUR CARDS: ")
+        print("")
+        print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]" + "[" + str(random_card3) + "]")
+        time.sleep(1)
+        print("")
 
-if choice_bj == "Stand":
+
+if choice_bj == "stand" and choice_hit == False:
     print("")
     print("DEALERS CARDS: ")
     print("")
-    print("    [" + str(dealers_cards1) + "]" "[" + str(dealers_cards2) + "]     ")
+    print("    [" + str(random_dealers_cards1) + "]" "[" + str(random_dealers_cards2) + "]     ")
     print("")
     print("YOUR CARDS: ")
     print("")
-    print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]" + "[" + str(random_card3) + "]")
+    print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]") #+ "[" + str(random_card3) + "]")
     time.sleep(1)
     print("")
 
@@ -140,4 +155,3 @@ if choice_bj == "Stand":
 
 #random_card = random.choices(cards, k=3)
 #print(random_card)
-
