@@ -1,12 +1,24 @@
 import time
 import sys
+import random
+
+#ASCII Art for my game
+print("""   
+
+                          ____          _             
+                         / ___|__ _ ___(_)_ __   ___  
+                        | |   / _` / __| | '_ \ / _ \ 
+                        | |__| (_| \__ \ | | | | (_) |
+                         \____\__,_|___/_|_| |_|\___/ 
+
+""")
 
 time.sleep(1)
-print("Yokosou!")
+print("Yokosou!")         #Welcoming to the casio
 time.sleep(1)
 print("This is my Casino.")
 
-while True:
+while True:     #Asking if they'd like to play the games within the casino
     time.sleep(1)
     answer = input("Would you like to step in and try play the games...? ")
 
@@ -28,7 +40,7 @@ while True:
 
 print("")
 print("[1] BlackJack",end=" ")
-print("[3] Roulette")
+print("[3] Roulette")               #The games that I offer within the casino
 print("[2] Poker",end="     ")
 print("[4] Slot Machines")
 print("")
@@ -36,12 +48,12 @@ casino_game = input("Please enter the game you'd like to play: ")
 print("")
 
 while True:
-    time.sleep(1)
+    time.sleep(1)               #Game - BlackJack
     if casino_game == "1":
         print("Ah, So you've selected BlackJack. This could be a lot of fun...")
         print("")
         time.sleep(1)
-        print("Would you like a Tutorial?: ")
+        print("Would you like a Tutorial?: ")       #asking if they'd like a tutorial for the game BlackJack
         tutorial_bj = input("      [Yes] [No]: ")
         #print("")
         if tutorial_bj == "Yes" or tutorial_bj == "yes" or tutorial_bj == "Y" or tutorial_bj == "y":
@@ -68,3 +80,64 @@ while True:
             print("")
             print("Well then lets get started!")
             break
+
+time.sleep(1)
+#bust >= 22
+dealers_cards1 = [5,6,7,8,9,10,"Jack","Queen","King","Ace"]
+dealers_cards2 = [10,"Jack","Queen","King","Ace"]
+cards = [1,2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"]
+random_card1 = random.choice(cards)
+random_card2 = random.choice(cards)
+random_card3 = random.choice(cards)
+
+
+print("")
+print("-------------------------------------------------------------------")
+print("")
+print("DEALERS CARDS: ")
+print("")
+print("    [?][?]     ")
+print("""
+
+""")
+print("YOUR CARDS: ")
+print("")
+print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]") #+ "[" + str(random_card3) + "]")
+time.sleep(1)
+print("")
+print("What's your next move?")
+print("")
+choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
+
+if choice_bj == "hit":
+    print("")
+    print("DEALERS CARDS: ")
+    print("")
+    print("    [?][?]     ")
+    print("")
+    print("YOUR CARDS: ")
+    print("")
+    print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]" + "[" + str(random_card3) + "]")
+    time.sleep(1)
+    print("")
+    print("What's your next move?")
+    print("")
+    choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
+
+if choice_bj == "Stand":
+    print("")
+    print("DEALERS CARDS: ")
+    print("")
+    print("    [" + str(dealers_cards1) + "]" "[" + str(dealers_cards2) + "]     ")
+    print("")
+    print("YOUR CARDS: ")
+    print("")
+    print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]" + "[" + str(random_card3) + "]")
+    time.sleep(1)
+    print("")
+
+
+
+#random_card = random.choices(cards, k=3)
+#print(random_card)
+
