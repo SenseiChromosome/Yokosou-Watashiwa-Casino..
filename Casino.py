@@ -95,7 +95,32 @@ random_card3 = random.choice(cards)
 random_dealers_cards1 = random.choice(dealers_cards1)
 random_dealers_cards2 = random.choice(dealers_cards2)
 choice_hit = False
-random_card_total1 = int(random_card1) + int(random_card2) + int(random_card3)        
+
+cardConversion = {
+    1:1,
+    2:2,
+    3:3,
+    4:4,
+    5:5,
+    6:6,
+    7:7,
+    8:8,
+    9:9,
+    10:10,
+    "Jack": 10,
+    "Queen": 10,
+    "King": 10
+}
+
+random_card_total1 = ("{0}{1}{2}".format(str(random_card1), str(random_card2), str(random_card3)))
+total = 0
+
+for cards in random_card_total1:
+    if cards == "Ace":
+        total = input("Please select what you'd like you race to be, 11 or 1: ")
+    else:
+        total += cardConversion[cards]
+
 
 print("")
 print("-------------------------------------------------------------------")
@@ -129,8 +154,8 @@ if choice_bj == "hit":
     print("What's your next move?")
     print("")
     choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
-    if random_card_total1 >= 22:
-      print("You've gone bust!!")
+    if total >= 22:
+        print("You've gone bust!!")
     elif choice_bj == "stand":
         print("")
         print("DEALERS CARDS: ")
