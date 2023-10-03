@@ -5,11 +5,14 @@ import random
 #ASCII Art for my game
 print("""   
 
-                          ____          _             
-                         / ___|__ _ ___(_)_ __   ___  
-                        | |   / _` / __| | '_ \ / _ \ 
-                        | |__| (_| \__ \ | | | | (_) |
-                         \____\__,_|___/_|_| |_|\___/ 
+                         _______  _______  _______ _________ _        _______ 
+                        (  ____ \(  ___  )(  ____ \\__   __/( (    /|(  ___  )
+                        | (    \/| (   ) || (    \/   ) (   |  \  ( || (   ) |
+                        | |      | (___) || (_____    | |   |   \ | || |   | |
+                        | |      |  ___  |(_____  )   | |   | (\ \) || |   | |
+                        | |      | (   ) |      ) |   | |   | | \   || |   | |
+                        | (____/\| )   ( |/\____) |___) (___| )  \  || (___) |
+                        (_______/|/     \|\_______)\_______/|/    )_)(_______)
 
 """)
 
@@ -83,7 +86,7 @@ while True:
 
 time.sleep(1)
 #bust >= 22
-dealers_cards1 = [5,6,7,8,9,10,"Jack","Queen","King","Ace"]
+dealers_cards1 = [5,6,7,8,9,10,]
 dealers_cards2 = [10,"Jack","Queen","King","Ace"]
 cards = [1,2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"]
 random_card1 = random.choice(cards)
@@ -92,14 +95,14 @@ random_card3 = random.choice(cards)
 random_dealers_cards1 = random.choice(dealers_cards1)
 random_dealers_cards2 = random.choice(dealers_cards2)
 choice_hit = False
-
+random_card_total1 = int(random_card1) + int(random_card2) + int(random_card3)        
 
 print("")
 print("-------------------------------------------------------------------")
 print("")
 print("DEALERS CARDS: ")
 print("")
-print("    [?][?]     ")
+print("    " + "[" + str(random_dealers_cards1) + "][?]     ")
 print(""
       "")
 print("YOUR CARDS: ")
@@ -116,7 +119,7 @@ if choice_bj == "hit":
     print("")
     print("DEALERS CARDS: ")
     print("")
-    print("    [?][?]     ")
+    print("    [" + str(random_dealers_cards1) + "][?]     ")
     print("")
     print("YOUR CARDS: ")
     print("")
@@ -126,7 +129,9 @@ if choice_bj == "hit":
     print("What's your next move?")
     print("")
     choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
-    if choice_bj == "stand":
+    if random_card_total1 >= 22:
+      print("You've gone bust!!")
+    elif choice_bj == "stand":
         print("")
         print("DEALERS CARDS: ")
         print("")
