@@ -119,6 +119,7 @@ for cards in random_card_total1:
     if cards == "Ace":
         total = input("Please select what you'd like you race to be, 11 or 1: ")
     else:
+        #print(total)
         total += cardConversion[cards]
 
 
