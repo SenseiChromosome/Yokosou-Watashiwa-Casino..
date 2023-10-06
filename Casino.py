@@ -88,7 +88,7 @@ time.sleep(1)
 #bust >= 22
 dealers_cards1 = [5,6,7,8,9,10,]
 dealers_cards2 = [10,"Jack","Queen","King","Ace"]
-cards = [1,2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"]
+cards = [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"]
 random_card1 = random.choice(cards)
 random_card2 = random.choice(cards)
 random_card3 = random.choice(cards)
@@ -97,30 +97,30 @@ random_dealers_cards2 = random.choice(dealers_cards2)
 choice_hit = False
 
 cardConversion = {
-    1:1,
-    2:2,
-    3:3,
-    4:4,
-    5:5,
-    6:6,
-    7:7,
-    8:8,
-    9:9,
-    10:10,
+    "1":1,
+    "2":2,
+    "3":3,
+    "4":4,
+    "5":5,
+    "6":6,
+    "7":7,
+    "8":8,
+    "9":9,
+    "10":10,
     "Jack": 10,
     "Queen": 10,
     "King": 10
 }
 
 random_card_total1 = ("{0}{1}{2}".format(str(random_card1), str(random_card2), str(random_card3)))
-total = 0
+#random_card_total1 = 0
 
 for cards in random_card_total1:
     if cards == "Ace":
         total = input("Please select what you'd like you race to be, 11 or 1: ")
     else:
-        #print(total)
-        total += cardConversion[cards]
+        print(random_card_total1)
+        #total += cardConversion[cards]
 
 
 print("")
