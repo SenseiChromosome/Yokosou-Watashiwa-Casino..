@@ -82,53 +82,83 @@ while True:
             break
 
 time.sleep(1)
-#bust >= 22
+
+card_value = {
+  1:1,
+  2:2,
+  3:3,
+  4:4,
+  5:5,
+  6:6,
+  7:7,
+  8:8,
+  9:9,
+  10:10,
+  "Jack":10,
+  "Queen":10,
+  "King":10,
+  "Ace":[1,11]
+}
+
+bust = 22
 dealers_cards1 = [5,6,7,8,9,10,"Jack","Queen","King","Ace"]
 dealers_cards2 = [10,"Jack","Queen","King","Ace"]
-cards = [1,2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"]
+cards =[2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"]
 random_card1 = random.choice(cards)
 random_card2 = random.choice(cards)
 random_card3 = random.choice(cards)
 random_dealers_cards1 = random.choice(dealers_cards1)
 random_dealers_cards2 = random.choice(dealers_cards2)
+dealers_card_total = card_value[random_dealers_cards1] + card_value[random_dealers_cards2]
 choice_hit = False
-
+players_card_total = card_value[random_card1] + card_value[random_card2]
 
 print("")
 print("-------------------------------------------------------------------")
 print("")
 print("DEALERS CARDS: ")
 print("")
-print("    [?][?]     ")
+print(f'    [{random_dealers_cards1}][?]     ')
 print(""
       "")
 print("YOUR CARDS: ")
 print("")
-print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]") #+ "[" + str(random_card3) + "]")
+print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]" + "       " + "Total: " + str(players_card_total)) #+ "[" + str(random_card3) + "]")
 time.sleep(1)
 print("")
-print("What's your next move?")
+print(f"What's your next move?")
 print("")
 choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
 
+"""
+if random_card1 == card_value:
+  random_card1 += random_card_total
+  print(random_card_total)
+"""
+
 if choice_bj == "hit":
+    players_card_total = card_value[random_card1] + card_value[random_card2] + card_value[random_card3]
+    if players_card_total >= bust:
+      print(f"\nYou've gone Bust!")
+      print(f"Your total was {players_card_total}!")
+      sys.exit()
     choice_hit = True
     print("")
-    print("DEALERS CARDS: ")
+    print("\nDEALERS CARDS: ")
     print("")
-    print("    [?][?]     ")
+    print(f'    [{random_dealers_cards1}][?]     ')
     print("")
     print("YOUR CARDS: ")
     print("")
-    print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]" + "[" + str(random_card3) + "]")
+    print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]" + "[" + str(random_card3) + "]" + "       " + "Total: " + str(players_card_total))
     time.sleep(1)
     print("")
-    print("What's your next move?")
+    print(f"What's your next move? {players_card_total}")
     print("")
     choice_bj = input("[Hit] [Stand] [Split] [Double Down]: ")
     if choice_bj == "stand":
         print("")
-        print("DEALERS CARDS: ")
+        print("\nDEALERS CARDS: ")
         print("")
         print("    [" + str(random_dealers_cards1) + "]" "[" + str(random_dealers_cards2) + "]     ")
         print("")
@@ -148,6 +178,11 @@ if choice_bj == "stand" and choice_hit == False:
     print("YOUR CARDS: ")
     print("")
     print("    [" + str(random_card1) + "]" + "[" + str(random_card2) + "]") #+ "[" + str(random_card3) + "]")
+    if dealers_card_total > players_card_total:
+      print(f"\nYou lost!")
+    else: 
+      print(f"\nYou Won!")
+  
     time.sleep(1)
     print("")
 
